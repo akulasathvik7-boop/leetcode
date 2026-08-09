@@ -9,15 +9,18 @@
  * }
  */
 class Solution {
+         int mul=1;
+        int sum=0;
     public int getDecimalValue(ListNode head) {
-        if(head==null)return 0;
-        ListNode temp=head;
-        String s="";
-        while(temp!=null){
-            s+=temp.val;
-            temp=temp.next;
+       
+        if(head.next==null){
+            return mul*head.val;
         }
-        int number = Integer.parseInt(s, 2);
-        return number;
+
+        int sum=getDecimalValue(head.next);
+        mul*=2;
+        sum+=mul*head.val;
+
+    return sum;
     }
 }
